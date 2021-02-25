@@ -32,5 +32,7 @@ xhr.onload = function () {
 ```
 
 ```javascript
-Total Population: 7349137231
+   Output:
+   ---------------
+   Total Population: 7349137231
 ```
