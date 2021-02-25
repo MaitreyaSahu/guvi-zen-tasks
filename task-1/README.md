@@ -1,4 +1,4 @@
-### [Tasks](https://github.com/MaitreyaSahu/guvi-zen-tasks#guvi-zen-tasks) > [task1](#guvi-zen---task-1)
+### [Tasks](https://github.com/MaitreyaSahu/guvi-zen-tasks#guvi-zen-tasks) > [Task-1](#guvi-zen---task-1)
 ---
 
 # Guvi Zen - Task-1
