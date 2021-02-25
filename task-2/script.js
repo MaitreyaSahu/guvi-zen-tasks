@@ -17,6 +17,9 @@ xhr.onload = function () {
         console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
     } else { // show the result
         let countryData = JSON.parse(xhr.response);
-        console.log(countryData.reduce((acc, cur) => acc + cur.population, 0)); // response is the server response
+        let totalPopulation = countryData.reduce((acc, cur) => acc + cur.population, 0);
+
+        console.log("Total Population: ", totalPopulation);
+        document.getElementById('Populations').innerHTML = totalPopulation;
     }
 };
