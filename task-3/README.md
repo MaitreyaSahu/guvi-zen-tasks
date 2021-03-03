@@ -35,7 +35,9 @@ console.log(numbers.filter(num => num % 2));
 ```javascript
 let names = ["ABC leanne graham", "ervin howell", "clementine bauch", "patricia lebsack", "chelsey dietrich", "mrs. dennis schulist", "kurtis weissnat", "nicholas runolfsdottir v", "glenna reichert", "clementina dubuque"];
 
-names = names.map(name => name.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' '));
+const convertToTitleCase = string => string.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+
+names = names.map(convertToTitleCase);
 
 console.log(names);
 ```
@@ -49,7 +51,9 @@ console.log(names);
 ```javascript
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-console.log(numbers.reduce((acc, cur) => acc + cur));
+const arraySum = arr => arr.reduce((acc, cur) => acc + cur);
+
+arraySum(numbers);
 ```
 ```javascript
    Output:
@@ -59,6 +63,10 @@ console.log(numbers.reduce((acc, cur) => acc + cur));
 
 ### 4. Return all the prime numbers in an array
 ```javascript
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const primeFilter = arr => arr.filter(isPrime);
+
 const isPrime = num => {
     for (let i = 2, limit = Math.sqrt(num); i <= limit; i++) {
         if (num % i === 0) {
@@ -68,9 +76,7 @@ const isPrime = num => {
     return num > 1;
 };
 
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-console.log(numbers.filter(isPrime));
+primeFilter(numbers);
 ```
 ```javascript
     Output:
@@ -80,12 +86,15 @@ console.log(numbers.filter(isPrime));
 
 ### 5. Return all the palindromes in an array
 ```javascript
+let inputs = ["madam", "demo", "lol", "dummy", "pop", "test", "radar"];
+
+const palindromeFilter = arr => arr.filter(isPalindrome);
+
 const isPalindrome = input => {
     return input === input.split('').reverse().join('');
 }
 
-let inputs = ["madam", "demo", "lol", "dummy", "pop", "test", "radar"];
-console.log(inputs.filter(isPalindrome));
+palindromeFilter(inputs);
 ```
 ```javascript
     Output:
@@ -99,9 +108,9 @@ console.log(inputs.filter(isPalindrome));
 ```javascript
 let numbers = [1, 2, 2, 5, 3, 4, 2, 5, 1];
 
-numbers = numbers.filter((num, index, arr) => arr.indexOf(num) === index);
+const removeDuplicate = array => array.filter((num, index, arr) => arr.indexOf(num) === index);
 
-console.log(numbers);
+removeDuplicate(numbers);
 ```
 ```javascript
     Output:
@@ -112,14 +121,15 @@ console.log(numbers);
 ### 8. Rotate an array by k times and return the rotated array
 ```javascript
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let numberOfRotation = 5;
 
 const rotateArray = (array, rotation) => rotation % 2 ? numbers.reverse() : numbers;
 
-rotateArray(numbers, numberOfRotation);
+rotateArray(numbers, 5); //[9, 8, 7, 6, 5, 4, 3, 2, 1]
+rotateArray(numbers, 510); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 ```javascript
     Output:
     ---------------
     [9, 8, 7, 6, 5, 4, 3, 2, 1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
