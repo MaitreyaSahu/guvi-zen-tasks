@@ -108,3 +108,18 @@ console.log(numbers);
     ---------------
     [1, 2, 5, 3, 4]
 ```
+
+### 8. Rotate an array by k times and return the rotated array
+```javascript
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numberOfRotation = 5;
+
+const rotateArray = (array, rotation) => rotation % 2 ? numbers.reverse() : numbers;
+
+rotateArray(numbers, numberOfRotation);
+```
+```javascript
+    Output:
+    ---------------
+    [9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
