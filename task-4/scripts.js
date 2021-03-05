@@ -10,8 +10,8 @@
 let xhr = new XMLHttpRequest();
 xhr.open("GET", "https://restcountries.eu/rest/v2/all");
 xhr.send();
-xhr.onload = function(){
-    if(xhr.status != 200){
+xhr.onload = function () {
+    if (xhr.status != 200) {
         console.log(`Error ${xhr.status}:${xhr.statusText}`);
     } else {
         let countryData = JSON.parse(xhr.response);
@@ -19,6 +19,7 @@ xhr.onload = function(){
     }
 
 }
+
 
 const workPlace = countryData => {
     console.log(countryData[1]);
@@ -37,4 +38,3 @@ const workPlace = countryData => {
     let countriesWithCurrencyUSD = countryData.filter(country => country.currencies[0].code === "USD");
     console.log(countriesWithCurrencyUSD);
 }
-
