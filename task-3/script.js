@@ -1,28 +1,56 @@
-// Do the below programs in anonymous function and arrow function.
 
-// - Print odd numbers in an array
-// - Convert all the strings to title caps in a string array
-// - Sum of all numbers in an array
-// - Return all the prime numbers in an array
-// - Return all the palindromes in an array
-// - Return median of two sorted arrays of same size
-// - Remove duplicates from an array
-// - Rotate an array by k times and return the rotated array
+// 1. Print odd numbers in an array
+// 2. Convert all the strings to title caps in a string array
+// 3. Sum of all numbers in an array
+// 4. Return all the prime numbers in an array
+// 5. Return all the palindromes in an array
+// 6. Return median of two sorted arrays of same size
+// 7. Remove duplicates from an array
+// 8. Rotate an array by k times and return the rotated array
 
-// - Print odd numbers in an array
+
+
+//### 1. Print odd numbers in an array
+
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(numbers.filter(num => num % 2));
 
-// - Convert all the strings to title caps in a string array
+console.log(numbers.filter(num => num % 2));
+// Output:
+// ---------------
+//[1, 3, 5, 7, 9]
+
+//### 2. Convert all the strings to title caps in a string array
+
 let names = ["ABC leanne graham", "ervin howell", "clementine bauch", "patricia lebsack", "chelsey dietrich", "mrs. dennis schulist", "kurtis weissnat", "nicholas runolfsdottir v", "glenna reichert", "clementina dubuque"];
-names = names.map(name => name.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' '));
+
+const convertToTitleCase = string => string.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+
+names = names.map(convertToTitleCase);
 console.log(names);
 
-// - Sum of all numbers in an array
+// Output:
+// ---------------
+// ["Abc Leanne Graham", "Ervin Howell", "Clementine Bauch", "Patricia Lebsack", "Chelsey Dietrich", "Mrs. Dennis Schulist", "Kurtis Weissnat", "Nicholas Runolfsdottir V", "Glenna Reichert", "Clementina Dubuque"]
+ 
+//### 3. Sum of all numbers in an array
+  
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(numbers.reduce((acc, cur) => acc + cur));
 
-// - Return all the prime numbers in an array
+const arraySum = arr => arr.reduce((acc, cur) => acc + cur);
+
+arraySum(numbers);
+
+// Output:
+// ---------------
+// 45
+
+
+//### 4. Return all the prime numbers in an array
+  
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const primeFilter = arr => arr.filter(isPrime);
+
 const isPrime = num => {
     for (let i = 2, limit = Math.sqrt(num); i <= limit; i++) {
         if (num % i === 0) {
@@ -30,22 +58,57 @@ const isPrime = num => {
         }
     }
     return num > 1;
-}
+};
 
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(numbers.filter(isPrime));
+primeFilter(numbers);
 
-// - Return all the palindromes in an array
+// Output:
+// ---------------
+// [2, 3, 5, 7]
+ 
+
+//### 5. Return all the palindromes in an array
+  
+let inputs = ["madam", "demo", "lol", "dummy", "pop", "test", "radar"];
+
+const palindromeFilter = arr => arr.filter(isPalindrome);
+
 const isPalindrome = input => {
     return input === input.split('').reverse().join('');
 }
 
-let inputs = ["madam", "demo", "lol", "dummy", "pop", "test", "radar"];
-console.log(inputs.filter(isPalindrome));
+palindromeFilter(inputs);
 
-// - Return median of two sorted arrays of same size
+// Output:
+// ---------------
+// ["madam", "lol", "pop", "radar"]
+ 
 
-// - Remove duplicates from an array
+//### 6. Return median of two sorted arrays of same size
+
+//### 7. Remove duplicates from an array
+  
 let numbers = [1, 2, 2, 5, 3, 4, 2, 5, 1];
-numbers = numbers.filter((num, index, arr) => arr.indexOf(num) === index);
-console.log(numbers);
+
+const removeDuplicate = array => array.filter((num, index, arr) => arr.indexOf(num) === index);
+
+removeDuplicate(numbers);
+
+// Output:
+// ---------------
+// [1, 2, 5, 3, 4]
+ 
+
+//### 8. Rotate an array by k times and return the rotated array
+  
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const rotateArray = (array, rotation) => rotation % 2 ? numbers.reverse() : numbers;
+
+rotateArray(numbers, 5); //[9, 8, 7, 6, 5, 4, 3, 2, 1]
+rotateArray(numbers, 510); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// Output:
+// ---------------
+// [9, 8, 7, 6, 5, 4, 3, 2, 1]
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
